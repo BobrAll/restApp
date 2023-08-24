@@ -27,7 +27,7 @@ public class AppUserService {
     }
 
     public AppUser update(AppUser appUser) {
-        return repository.save( appUser);
+        return repository.save(appUser);
     }
 
     public void delete(Long id) {

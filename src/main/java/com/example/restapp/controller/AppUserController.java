@@ -2,10 +2,7 @@ package com.example.restapp.controller;
 
 import com.example.restapp.entity.AppUser;
 import com.example.restapp.service.AppUserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,5 +26,19 @@ public class AppUserController {
         return appUserService.findById(id);
     }
 
-    //public
+    @PostMapping
+    public AppUser add(@RequestBody AppUser appUser) {
+        return appUserService.save(appUser);
+    }
+
+    @PutMapping
+    public AppUser update(@RequestBody AppUser appUser) {
+        return appUserService.update(appUser);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        appUserService.delete(id);
+    }
+
 }
