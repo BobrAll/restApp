@@ -14,10 +14,12 @@ public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String email;
     private String firstName;
     private String lastName;
 
-    public AppUser(String firstName, String lastName) {
+    public AppUser(String email, String firstName, String lastName) {
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
     }
